@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# replace val x with lazy val x
+$ copy-file changes/A.scala A.scala
+
+# Marking A.scala modified should also recompile B.scala, producing a compile error
+-> update A.scala

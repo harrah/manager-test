@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# change repeated parameters to Seq
+$ copy-file changes/A.scala A.scala
+
+# Marking A.scala modified needs to recompile B.scala because the type has changed
+-> update A.scala

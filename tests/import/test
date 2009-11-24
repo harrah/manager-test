@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# shorten the package defined in A from 'a.b' to 'a'.
+$ copy-file changes/A.scala A.scala
+
+# 'import a.b' should now fail in B.scala
+-> update A.scala

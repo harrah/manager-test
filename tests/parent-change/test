@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add W.scala Y.scala Z.scala
+
+# modify V to no longer extend W
+$ copy-file changes/W.scala W.scala
+
+# The build manager should recompile Y.scala and report an error: "value x is not a member of Z"
+-> update W.scala

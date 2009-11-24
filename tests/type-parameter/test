@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala C.scala D.scala
+
+# remove type parameter from A
+$ copy-file changes/A.scala A.scala
+
+# should get compile error because B, C, D reference A without a type parameter
+-> update A.scala

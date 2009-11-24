@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# add private method
+$ copy-file changes/A.scala A.scala
+
+# Marking A.scala modified does not need to recompile B.scala (this cannot be currently tested, must be checked by looking at the output)
+> update A.scala

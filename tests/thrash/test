@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# modify A.scala so that the return type changes from String to Int
+$ copy-file changes/A.scala A.scala
+# No way to check this automatically at the moment, but the build manager should not
+# recompile each file many times
+> update A.scala

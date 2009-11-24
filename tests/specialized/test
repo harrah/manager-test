@@ -1,0 +1,18 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -Yspecialize -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# verify that erased A.x can be called normally and reflectively
+> call $PWD/classes -- B false
+
+# make A.x specialized
+$ copy-file changes/A.scala A.scala
+
+# Marking A.scala modified should also recompile B.scala, causing B.y to call the specialized version of A.x
+> update A.scala
+
+# verify that specialized A.x can be called normally and reflectively
+> call $PWD/classes -- B true

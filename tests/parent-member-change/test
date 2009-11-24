@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala C.scala
+
+# modify A.scala so that the signature of its method changes to be identical to
+# that of the method in its descendent in C.scala
+$ copy-file changes/A.scala A.scala
+# The build manager should recompile C.scala and report this error, failing the compile
+-> update A.scala
