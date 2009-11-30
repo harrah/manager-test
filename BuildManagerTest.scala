@@ -4,7 +4,7 @@ import java.io.File
 import java.net.URLClassLoader
 
 import xsbt.FileUtilities
-import xsbt.test.{CommentHandler, FileCommands, ScriptRunner, TestScriptParser}
+import xsbt.test.{CommentHandler, FileCommands, FilteredLoader, ScriptRunner, TestScriptParser}
 
 object BuildManagerTest
 {
@@ -26,7 +26,9 @@ class ManagerTest(scalaHome: File, tests: Seq[String]) extends NotNull
 	def run =
 	{
 		val lib = new File(scalaHome, "lib")
-		val jars = Array(new File(lib, "scala-library.jar"), new File(lib, "scala-compiler.jar")).map(_.toURI.toURL)
+		val jarFiles = Array(new File(lib, "scala-library.jar"), new File(lib, "scala-compiler.jar"))
+		val jars = jarFiles.map(_.toURI.toURL)
+		jarFiles.foreach(jar => assert(jar.exists, "Scala jar " + jar.getAbsolutePath + " does not exist"))
 		val loader = new URLClassLoader(jars, new FilteredLoader(getClass.getClassLoader))
 		tests.toList.map { path =>
 			val testScript = new File(path)

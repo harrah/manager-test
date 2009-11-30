@@ -70,7 +70,6 @@ class ManagerInterface(scalaHome: File, baseDirectory: File, refined: Boolean, l
 	def expandArguments(arguments: List[String]) = arguments.map( _.replace("$PWD", baseDirectory.getAbsolutePath) )
 	
 	def c(name: String) = Class.forName(name, true, loader).asInstanceOf[Class[T forSome { type T <: AnyRef}]]
-	c("scala.collection.immutable.StringLike")
 	val settingsC = c("scala.tools.nsc.Settings")
 	val compilerCommandC = c("scala.tools.nsc.CompilerCommand")
 	val refinedC = c("scala.tools.nsc.interactive.RefinedBuildManager")
