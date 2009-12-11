@@ -1,5 +1,5 @@
 class A
 {
 	def x = 3
-	def x_=(x0: Int) = ()
+	def x_=(x$1: Int) = ()
 }

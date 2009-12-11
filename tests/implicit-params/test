@@ -1,0 +1,13 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# make implicit parameters in A.x be explicit
+$ copy-file changes/A.scala A.scala
+
+# Marking A.scala modified needs to recompile B.scala because the parameter section is no longer implicit
+# and it should be a compile error
+-> update A.scala B.scala

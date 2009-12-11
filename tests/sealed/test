@@ -1,0 +1,14 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala D.scala
+
+# have new class E extend A
+$ copy-file changes/A.scala A.scala
+
+# Marking A.scala modified needs to recompile D.scala because the pattern match in D
+# is no longer exhaustive, which should be a warning
+# there is no way to make warnings errors, so this has to be manually checked
+-> update A.scala

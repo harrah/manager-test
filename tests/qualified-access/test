@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# change access of A.x
+$ copy-file changes/A.scala A.scala
+
+# Should force recompilation of B.scala because access changed and B's access is now invalid.
+-> update A.scala

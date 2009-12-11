@@ -1,0 +1,14 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+$ copy-file changes/A2.scala A.scala
+
+-> update A.scala
+
+$ copy-file changes/A3.scala A.scala
+
+-> update A.scala
