@@ -10,3 +10,9 @@ $ copy-file changes/A.scala A.scala
 
 # Marking A.scala modified does not need to recompile B.scala (this cannot be currently tested, must be checked by looking at the output)
 > update A.scala
+
+# add this qualifier to unqualified private method
+$ copy-file changes/A2.scala A.scala
+
+# Marking A.scala modified does not need to recompile B.scala (this cannot be currently tested, must be checked by looking at the output)
+> update A.scala

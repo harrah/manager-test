@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala C.scala
+
+# copy a C.scala with an error so that if it is recompiled, we know
+$ copy-file changes/C.scala C.scala
+
+# should only recompile A.scala, since A.scala hasn't changed
+> update A.scala

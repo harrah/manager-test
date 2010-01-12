@@ -3,10 +3,10 @@ $ mkdir classes
 > init -d $PWD/classes
 
 # initial compilation of all files, which should succeed
-> add A.scala B.scala
+> add A.scala B.java
 
-# change A.x to be explicit
+# copy a file with an error in case A is recompiled
 $ copy-file changes/A.scala A.scala
 
-# Marking A.scala modified needs to recompile B.scala because implicit was removed
--> update A.scala
+# Recompile
+> update B.java

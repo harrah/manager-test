@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add T.scala package.scala
+
+# change type of member in package object
+$ copy-file changes/package.scala package.scala
+
+# Marking package.scala modified should also recompile T.scala, producing a compile error
+-> update package.scala

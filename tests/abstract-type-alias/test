@@ -5,8 +5,8 @@ $ mkdir classes
 # initial compilation of all files, which should succeed
 > add A.scala B.scala
 
-# change A.x to be explicit
+# remove type arguments from S
 $ copy-file changes/A.scala A.scala
 
-# Marking A.scala modified needs to recompile B.scala because implicit was removed
+# Marking A.scala modified should also recompile B.scala, producing a compile error
 -> update A.scala
