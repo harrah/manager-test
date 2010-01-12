@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# change method implementation to use local method
+$ copy-file changes/A.scala A.scala
+$ copy-file changes/B.scala B.scala
+
+> update A.scala
