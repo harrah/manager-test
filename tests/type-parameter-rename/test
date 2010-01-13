@@ -1,0 +1,14 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# remove type parameter from A
+$ copy-file changes/A.scala A.scala
+
+# copy an invalid file to B.scala so that an error occurs if B.scala is recompiled
+$ copy-file changes/B.scala B.scala
+
+> update A.scala
