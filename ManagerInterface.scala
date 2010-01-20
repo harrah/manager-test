@@ -18,6 +18,7 @@ class ManagerInterface(scalaHome: File, baseDirectory: File, refined: Boolean, l
 		//if(refined) new RefinedBuildManager(settings) else new SimpleBuildManager(settings)
 		if(refined) newRefinedC.newInstance(settings) else newSimpleC.newInstance(settings)
 	}
+	def finish(state: AnyRef) {}
 	def apply(command: String, arguments: List[String], manager: AnyRef): AnyRef =
 	{
 		val (success, newState) =
@@ -41,7 +42,7 @@ class ManagerInterface(scalaHome: File, baseDirectory: File, refined: Boolean, l
 		val reporterClass = reporter.getClass
 		// val hasErrors = reporter.hasErrors
 		val hasErrors = reporterClass.getMethod("hasErrors").invoke(reporter).asInstanceOf[Boolean]
-		if(hasErrors || !success) error(command + " failed")
+		if(hasErrors || !success) throw new TestException(command + " failed")
 		reporterClass.getMethod("reset").invoke(reporter) // reporter.reset
 		newState
 	}

@@ -52,15 +52,22 @@ class ManagerTest(scalaHome: File, tests: Seq[String]) extends NotNull
 			System.out.println("+ " + path)
 			true
 		}
-		catch
-		{
-			case e: xsbt.test.TestException =>
+		catch {
+			case e: Exception =>
 				System.err.println("x " + path)
-				if(e.getCause eq null)
-					System.err.println("   " + e.getMessage)
-				else
-					e.printStackTrace
-				false
+				processException(e); false
+		}
+	}
+	final def processException(e: Throwable)
+	{
+		e match
+		{
+			case _: xsbt.test.TestException | _: xsbt.deptest.TestException =>
+				System.err.println("   " + e.getMessage)
+				if(e.getCause ne null)
+					processException(e.getCause)
+			case _ =>
+				e.printStackTrace
 		}
 	}
 }
