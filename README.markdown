@@ -3,11 +3,9 @@ To write a test:
 
 To run tests, use [sbt 0.6.x](http://simple-build-tool.googlecode.com/files/xsbt-launch-0.6.10.jar):
 
-{{{
     $ sbt
     > update
     > run <path to $SCALA_HOME/build/pack/> tests/<test name>/test
-}}}
 
  * `update` only needs to be run the first time.
  * Only one test can be run at a time currently- this should be easy to modify.
