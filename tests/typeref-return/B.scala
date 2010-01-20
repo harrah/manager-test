@@ -1,3 +1,3 @@
-object B {
-	val y: Int = A.x
+trait B {
+	def y(a: A): Int = a.x
 }

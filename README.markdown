@@ -10,3 +10,9 @@ To run tests, use [sbt 0.6.x](http://simple-build-tool.googlecode.com/files/xsbt
  * `update` only needs to be run the first time.
  * Only one test can be run at a time currently- this should be easy to modify.
  *  The error messages are poor when the arguments to `run` are omitted or not well-formed.
+ 
+ 
+ Test case notes:
+  * The `specialized` test does not work.  I'm not sure how to test that a method call properly uses a specialized method.
+  * `sealed` requires manual verification.  The test passes if a warning about exhaustiveness is printed.
+  * `thrash` requires manual verification.  The test passes if each source file is only recompiled a couple times and not 15 times each.

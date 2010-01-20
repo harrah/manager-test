@@ -1,4 +1,4 @@
-object A {
+trait A {
 	type I = Int
-	def x: I = error("not important")
+	def x: I
 }

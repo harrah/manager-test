@@ -9,5 +9,4 @@ class ManagerTest(info: ProjectInfo) extends DefaultProject(info)
 
 	val sbtIO = "org.scala-tools.sbt" %% "io" % "0.6.11"
 	val sbtTest = "org.scala-tools.sbt" %% "test" % "0.6.11" intransitive()
-	val sbtProcess = "org.scala-tools.sbt" % "process" % "0.1" intransitive()
 }

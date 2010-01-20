@@ -4,7 +4,7 @@ import java.io.File
 import java.net.{URL, URLClassLoader}
 import xsbt.test.StatementHandler
 
-class ManagerInterface(scalaHome: File, baseDirectory: File, refined: Boolean, loader: ClassLoader) extends StatementHandler
+class ManagerInterface(libraryJar: File, baseDirectory: File, refined: Boolean, loader: ClassLoader) extends StatementHandler
 {
 	type State = AnyRef
 	def initialState = newManager(Nil)
@@ -127,5 +127,5 @@ class ManagerInterface(scalaHome: File, baseDirectory: File, refined: Boolean, l
 		singletonField.get(null)
 	}
 		import Paths._
-	def libraryPath = (scalaHome / "lib" / "scala-library.jar").getAbsolutePath
+	def libraryPath = libraryJar.getAbsolutePath
 }
