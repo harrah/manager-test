@@ -12,7 +12,7 @@ To run tests, use [sbt 0.6.x](http://simple-build-tool.googlecode.com/files/xsbt
  * The first `run` runs a specific test.  The second invocation uses a wildcard to run all tests.
  
  
- Test case notes:
+Test case notes:
  * The `specialized` test does not work.  I'm not sure how to test that a method call properly uses a specialized method.
  * `sealed` requires manual verification.  The test passes if a warning about exhaustiveness is printed.
  * `thrash` requires manual verification.  The test passes if each source file is only recompiled a couple times and not 15 times each.
