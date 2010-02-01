@@ -8,11 +8,14 @@ $ mkdir classes
 # add private method
 $ copy-file changes/A.scala A.scala
 
-# Marking A.scala modified does not need to recompile B.scala (this cannot be currently tested, must be checked by looking at the output)
+# copy a version of B that causes an error if it is recompiled
+$ copy-file changes/B.scala B.scala
+
+# Marking A.scala modified does not need to recompile B.scala
 > update A.scala
 
 # add this qualifier to unqualified private method
 $ copy-file changes/A2.scala A.scala
 
-# Marking A.scala modified does not need to recompile B.scala (this cannot be currently tested, must be checked by looking at the output)
+# Marking A.scala modified does not need to recompile B.scala
 > update A.scala

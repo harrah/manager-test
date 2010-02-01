@@ -3,8 +3,11 @@ $ mkdir classes
 > init -d $PWD/classes -Ybuild-manager-debug
 
 # initial compilation of all files, which should succeed
-> add A.scala B.scala
+> add A.scala B.scala D.scala
 
 $ copy-file changes/A.scala A.scala
 
--> update A.scala
+# Marking A.scala modified should also recompile B.scala
+> update A.scala
+
+> call $PWD/classes -- D

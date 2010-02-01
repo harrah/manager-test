@@ -5,10 +5,6 @@ $ mkdir classes
 # initial compilation of all files, which should succeed
 > add A.scala B.scala
 
-# rename type parameter in A
 $ copy-file changes/A.scala A.scala
 
-# copy an invalid file to B.scala so that an error occurs if B.scala is recompiled
-$ copy-file changes/B.scala B.scala
-
-> update A.scala
+-> update A.scala

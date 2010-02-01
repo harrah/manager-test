@@ -5,6 +5,7 @@ $ mkdir classes
 # initial compilation of all files, which should succeed
 > add A.scala B.scala
 
+# switch type parameter names in A
 $ copy-file changes/A.scala A.scala
 
 -> update A.scala

@@ -1,0 +1,13 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes -Ybuild-manager-debug
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala C.scala D.scala
+
+$ copy-file changes/B.scala B.scala
+
+# Marking B.scala modified should also recompile C.scala
+> update B.scala
+
+> call $PWD/classes -- D

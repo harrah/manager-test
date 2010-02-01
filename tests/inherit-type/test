@@ -5,6 +5,7 @@ $ mkdir classes
 # initial compilation of all files, which should succeed
 > add A.scala B.scala
 
+# change nested class name to conflict with that in B
 $ copy-file changes/A.scala A.scala
 
 -> update A.scala
