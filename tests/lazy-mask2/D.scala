@@ -10,7 +10,7 @@ object D
 			println("Incorrect value(s). Actual values were:")
 			println("x: " + c.x)
 			println("y: " + c.y)
-			System.exit(1)
+			error("Incorrect value(s).")
 		}
 	}
 }

@@ -11,7 +11,7 @@ object D
 			println("x: " + c.x)
 			println("y: " + c.y)
 			println("z: " + c.z)
-			System.exit(1)
+			error("Incorrect value(s)")
 		}
 	}
 }
