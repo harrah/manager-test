@@ -1,0 +1,12 @@
+# setup scalac to compile to classes directory
+$ mkdir classes
+> init -d $PWD/classes
+
+# initial compilation of all files, which should succeed
+> add A.scala B.scala
+
+# remove class in A
+$ copy-file changes/A.scala A.scala
+
+# Recompile, should recompile B.scala, which references A
+-> update A.scala
